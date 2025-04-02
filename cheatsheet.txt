@@ -71,3 +71,38 @@ app.use("/users",userRouter) // linking the mini app with the main app, adding
 /users so every route in that file starts with /users automatically
 
 app.listen(3000) //the application is listening on port 3000 for a bunch of request to make it actually run
+
+router.post("/:id",(req,res) => { // a dynamic parameter, where it validates anything and returns the response
+    res.send(`Get user with ID ${req.params.id}`)
+})
+CHANING ROUTES 
+You can chain all of your get, put and delete code with router.route
+router.route("/:id").get().put().delete()
+
+So then we have two ways ==> 
+router
+.route("/:id")
+.get((req,res) => {
+    res.send(`Get user with ID ${req.params.id}`)
+})
+.put((req,res) => {
+    res.send(`Update user with ID ${req.params.id}`)
+})
+.delete((req,res) => {
+    res.send(`Delete user with ID ${req.params.id}`)
+})
+AND 
+router.get("/:id", (req,res) => {
+    res.send(`Get user with ID ${req.params.id}`)
+})
+router.put("/:id", (req,res) => {
+    res.send(`Update user with ID ${req.params.id}`)
+})
+router.delete("/:id", (req,res) => {
+    res.send(`Delete user with ID ${req.params.id}`)
+})
+
+router.param() ==> This runs anytime it finds a parameter that matches the name you pass into it
+router.param("id", (req,res,next,id) => { //anytime you encounter a parameter with id, run the code with the req,res,next and id
+    console.log(id)
+})
