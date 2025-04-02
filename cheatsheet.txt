@@ -53,3 +53,21 @@ res.send("Hi") // this sends down whatever we pass into it, is pretty generic
 
 You can run your server code in your express to output what is inside your views ==> html/css/js
 That means you can pass down information into your html file or js file, to do that you need a view engine
+
+You can also pass down information from your server to your views, res.render({text : "Hello"})
+then in your ejs file ==> Hello <%= 2+2 %> // this tells html that there is a code coming from the server and it 
+should output it and also run whatever is between it
+
+whatever code is placed between <% %> , is ran on the server before been outputted to the page
+Hello <%= locals.text || "Default" %>
+
+So instead of putting all your routes inside your main app, moveit into its own folder
+to create a mini app with router = express.router
+that way you can call the http functions on router ie router.get, router.post etc
+
+const userRouter = require ("./routes/user") // import and require file
+
+app.use("/users",userRouter) // linking the mini app with the main app, adding 
+/users so every route in that file starts with /users automatically
+
+app.listen(3000) //the application is listening on port 3000 for a bunch of request to make it actually run
