@@ -44,7 +44,6 @@ router.post("/", (req,res) => { //this is the post request that goes to /users
 router
     .route("/:id")
     .get((req,res) => {
-    console.log(req.user)
     res.send(`Get user with ID ${req.params.id}`)
 })
     .put((req,res) => {
