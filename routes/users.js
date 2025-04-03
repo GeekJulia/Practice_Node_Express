@@ -18,7 +18,7 @@ router.param("id", (req,res,next,id) => {
 })
 
 router.get("/", (req,res) => { 
-    
+    console.log(req.query.name) //the name represents the name that was given in the searchbar as in name=Kyle
     res.send("Users List")
 })
 

@@ -126,6 +126,7 @@ req.body.firstName //this firstName has to be the same with the name given to th
 
 res.redirect(`/users/${users.length - 1}`) //you can use res.redirect to redirect the user to anywhere
 app.use(express.json()) //allows you to pass json info from the body
+console.log(req.query.name) //the name represents the name that was given in the searchbar as in name=Kyle
 
 res.redirect(`/users/${users.length - 1}`) //you can use res.redirect to redirect the user to anywhere
 app.use(express.json()) //allows you to pass json info from the body
