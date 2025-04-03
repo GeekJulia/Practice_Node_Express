@@ -123,3 +123,6 @@ server.js ===> app.get("/",logger,(req,res) =>{ //anytime they navigate to /
 app.use(express.static("public")) //this is a middleware that will serve all the static folders from public as it is
 
 req.body.firstName //this firstName has to be the same with the name given to the input element in your html
+
+res.redirect(`/users/${users.length - 1}`) //you can use res.redirect to redirect the user to anywhere
+app.use(express.json()) //allows you to pass json info from the body

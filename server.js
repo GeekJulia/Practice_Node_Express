@@ -4,6 +4,7 @@ const app = express() // we create an application to help us set up our entire s
 app.set('view engine', 'ejs')
 app.use(express.static("public")) 
 app.use(express.urlencoded({extended : true}))
+app.use(express.json())
 
 const userRouter = require ("./routes/users") 
 

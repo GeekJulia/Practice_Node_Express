@@ -18,6 +18,7 @@ router.param("id", (req,res,next,id) => {
 })
 
 router.get("/", (req,res) => { 
+    
     res.send("Users List")
 })
 
@@ -27,13 +28,23 @@ router.get("/new",(req,res) => {
 })
 
 router.post("/", (req,res) => { //this is the post request that goes to /users
-    console.log(req.body.firstName)
-    res.send("Hi")
+    const isValid = false
+    if(isValid){
+        users.push({firstName : req.body.firstName})
+        res.redirect(`/users/${users.length - 1}`)
+        res.send("Welcome to our website")
+    }
+    else{
+        console.log("Error")
+        res.render("/users/new",{firstName: req.body.firstName}) //because it cant pass the name should still remain
+    }
+    // res.send("Hi")
 })
 
 router
     .route("/:id")
     .get((req,res) => {
+    console.log(req.user)
     res.send(`Get user with ID ${req.params.id}`)
 })
     .put((req,res) => {
