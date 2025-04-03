@@ -22,17 +22,18 @@ router.get("/", (req,res) => {
 })
 
 router.get("/new",(req,res) => {
-    res.send("User new Form")
+    // res.send("User new Form")
+    res.render("users/new", {firstName : "Test"})
 })
 
-router.post("/", (req,res) => {
-    res.send("Create a new user") //create a new user
+router.post("/", (req,res) => { //this is the post request that goes to /users
+    console.log(req.body.firstName)
+    res.send("Hi")
 })
 
 router
     .route("/:id")
     .get((req,res) => {
-    console.log(req.user)
     res.send(`Get user with ID ${req.params.id}`)
 })
     .put((req,res) => {

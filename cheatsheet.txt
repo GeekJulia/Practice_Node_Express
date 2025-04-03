@@ -106,3 +106,20 @@ router.param() ==> This runs anytime it finds a parameter that matches the name 
 router.param("id", (req,res,next,id) => { //anytime you encounter a parameter with id, run the code with the req,res,next and id
     console.log(id)
 })
+
+app.use(logger) // at top of the page
+function logger(req,res,next){
+    console.log(req.originalUrl)
+    next()
+}
+To render or pass down from server to html
+index.html ==> <body>
+    Hello <%= locals.text || "Default" %>
+</body>
+server.js ===> app.get("/",logger,(req,res) =>{ //anytime they navigate to /
+    res.render("index", {text : "World"})
+})
+
+app.use(express.static("public")) //this is a middleware that will serve all the static folders from public as it is
+
+req.body.firstName //this firstName has to be the same with the name given to the input element in your html
