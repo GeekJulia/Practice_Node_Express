@@ -4,46 +4,6 @@ This is where you then setup different routes
 app.get,app.post, app.put,app.delete
 app.get("path", (this is a function that takes three differentparameters))
 
-Website status codes are part of the HTTP response status codes returned by a web server when a request is made. 
-They indicate whether the request was successful or if there were issues.
-
-🌐 HTTP Status Code Categories
-1xx - Informational Responses: Request received, continuing process.
-
-2xx - Success: Request successfully received, understood, and accepted.
-
-3xx - Redirection: Further action needs to be taken to complete the request.
-
-4xx - Client Errors: Request contains bad syntax or cannot be fulfilled.
-
-5xx - Server Errors: Server failed to fulfill a valid request.
-
-✅ Common HTTP Status Codes
-Code	Name	Description
-1xx Informational		
-100	Continue	Request received, please continue.
-101	Switching Protocols	Switching to a different protocol as requested.
-2xx Success		
-200	OK	Request succeeded, response body contains the data.
-201	Created	Resource successfully created (e.g., after POST request).
-204	No Content	Request successful, but no content to return.
-3xx Redirection		
-301	Moved Permanently	Resource has been permanently moved to a new URL.
-302	Found	Temporarily moved to another URL.
-304	Not Modified	Cached version of resource can be used.
-4xx Client Errors		
-400	Bad Request	Request cannot be processed due to client error.
-401	Unauthorized	Authentication required.
-403	Forbidden	Client does not have permission.
-404	Not Found	Resource could not be found.
-405	Method Not Allowed	HTTP method not allowed for the requested resource.
-429	Too Many Requests	Rate limit exceeded.
-5xx Server Errors		
-500	Internal Server Error	Generic server error.
-502	Bad Gateway	Invalid response from upstream server.
-503	Service Unavailable	Server is down or overloaded.
-504	Gateway Timeout	Upstream server did not respond in time.
-
 res.download("server.js") //  downloads a file named server.js
 To render a html file ==> res.render("index") , you pass in the name of the file you want to render
 
