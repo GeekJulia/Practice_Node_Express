@@ -7,7 +7,6 @@ app.use(express.urlencoded({extended : true}))
 app.use(express.json())
 //testing
 const userRouter = require ("./routes/users") 
-
 app.use("/users",userRouter)  //anything that starts with /users add all the different routes in the userRouter to it
 
 function logger(req,res,next){

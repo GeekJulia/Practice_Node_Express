@@ -91,3 +91,17 @@ console.log(req.query.name) //the name represents the name that was given in the
 res.redirect(`/users/${users.length - 1}`) //you can use res.redirect to redirect the user to anywhere
 app.use(express.json()) //allows you to pass json info from the body
 console.log(req.query.name) //the name represents the name that was given in the searchbar as in name=Kyle
+
+If you send a POST request with a form like this:
+<form action="/submit" method="POST">
+  <input type="text" name="username" value="john_doe" />
+  <input type="password" name="password" value="secret123" />
+  <input type="submit" />
+</form>
+The body will be URL-encoded, and express.urlencoded({ extended: true }) 
+will ensure that you can access the form data like this:
+app.post('/submit', (req, res) => {
+  console.log(req.body.username);  // "john_doe"
+  console.log(req.body.password);  // "secret123"
+});
+Without this middleware, the req.body would be undefined, and you wouldn't be able to access the submitted data.
