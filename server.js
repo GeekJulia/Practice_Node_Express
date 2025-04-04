@@ -5,7 +5,7 @@ app.set('view engine', 'ejs')
 app.use(express.static("public")) 
 app.use(express.urlencoded({extended : true}))
 app.use(express.json())
-
+//testing
 const userRouter = require ("./routes/users") 
 
 app.use("/users",userRouter)  //anything that starts with /users add all the different routes in the userRouter to it

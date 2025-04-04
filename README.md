@@ -1,2 +1,2 @@
-# Campus_mart-Backend
-The backend repo for campus mart.
+# Practice repository
+This is the repository i use to practice node js and express js
